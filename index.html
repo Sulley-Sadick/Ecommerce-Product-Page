@@ -1,35 +1,289 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="./images/favicon-32x32.png"
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <!-- title for the project -->
+    <title>Frontend Mentor | E-commerce product page</title>
+    <!-- google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- stylesheet link -->
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body
+    class="min-h-screen w-full bg-[var(--white)] py-6 font-[var(--font-family)] text-[var(--dark-grayish-blue)] md:px-[7rem]"
+  >
+    <!-- navbar container -->
+    <nav
+      class="relative flex items-center justify-between px-6 lg:border-b-4 lg:border-[var(--light-grayish-blue)] lg:px-0 lg:pb-[2rem]"
+    >
+      <div class="flex items-center gap-[1.5rem]">
+        <button type="button" class="cursor-pointer lg:hidden">
+          <img src="./images/icon-menu.svg" alt="menu icon" />
+        </button>
+        <img src="./images/logo.svg" alt="sneaker image" />
+        <div
+          class="absolute -top-[1.736rem] left-0 z-1 hidden min-h-[150vh] w-[67%] bg-[var(--white)] pt-[2rem] pl-6 lg:static lg:top-auto lg:flex lg:min-h-0 lg:items-center lg:pt-0"
+        >
+          <button type="button" class="cursor-pointer lg:hidden">
+            <img
+              src="./images/icon-close.svg"
+              class="close-links mb-[3rem] w-[1.2rem]"
+            />
+          </button>
+          <ul
+            class="gap-[2rem] font-[var(--font-weight-700)] text-[var(--very-dark-blue)] lg:mt-5 lg:ml-6 lg:flex lg:items-center lg:justify-center lg:font-[var(--font-weight-400)] lg:text-[var(--dark-grayish-blue)] [&>*]:mb-4"
+          >
+            <li>
+              <a class="border-bottom padding-bottom" href="#">Collections</a>
+            </li>
+            <li>
+              <a href="#" class="border-bottom padding-bottom">Men</a>
+            </li>
+            <li>
+              <a href="#" class="border-bottom padding-bottom">Women</a>
+            </li>
+            <li>
+              <a href="#" class="border-bottom padding-bottom">About</a>
+            </li>
+            <li>
+              <a href="#" class="border-bottom padding-bottom">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="flex items-center gap-[1.5rem]">
+        <button type="button">
+          <img
+            src="./images/icon-cart.svg"
+            alt="cart icon"
+            class="w-[1.5rem] hover:cursor-pointer"
+          />
+        </button>
+        <button type="button">
+          <img
+            src="./images/image-avatar.png"
+            alt="person profile"
+            class="w-[2.5rem] rounded-full border-[var(--orange)] hover:cursor-pointer hover:border-2"
+          />
+        </button>
+      </div>
+    </nav>
+
+    <!-- main container -->
+    <main
+      class="relative mb-4 gap-[3rem] lg:mt-[3rem] lg:grid lg:grid-cols-2 lg:grid-rows-1 lg:items-center"
+    >
+      <!-- images section -->
+      <section class="relative">
+        <!-- previous icon -->
+        <button type="button" class="cursor-pointer lg:hidden">
+          <img
+            src="./images/icon-previous.svg"
+            alt="previous icon"
+            class="absolute top-[47%] left-5 rounded-[50%] bg-[var(--light-grayish-blue)] p-2"
+          />
+        </button>
+        <!-- main image -->
+        <img
+          class="w-full lg:mr-8 lg:max-h-[100%] lg:w-[85%] lg:justify-self-end lg:rounded-[10px]"
+          src="./images/image-product-1-thumbnail.jpg"
         />
 
-        <title>Frontend Mentor | E-commerce product page</title>
-        <link rel="stylesheet" href="./src/style.css" />
-    </head>
-    <body>
-        Collections Men Women About Contact Sneaker Company Fall Limited Edition
-        Sneakers These low-profile sneakers are your perfect casual wear
-        companion. Featuring a durable rubber outer sole, they’ll withstand
-        everything the weather can offer. $125.00 50% $250.00 0 Add to cart
-
-        <div class="text-center text-[11px]">
-            Challenge by
-            <a
-                href="https://www.frontendmentor.io?ref=challenge"
-                target="_blank"
-                class="text-[hsl(228,45%,44%)]"
-                >Frontend Mentor</a
-            >. Coded by
-            <a href="#" class="text-[hsl(228,45%,44%)]">Sadick Sulley</a>.
+        <!-- next icon -->
+        <button type="button" class="cursor-pointer lg:hidden">
+          <img
+            src="./images/icon-next.svg"
+            alt="next icon"
+            class="absolute top-[47%] right-6 rounded-[50%] bg-[var(--light-grayish-blue)] p-2"
+          />
+        </button>
+        <!-- product images -->
+        <div
+          class="x xl:gap- hidden lg:mt-4 lg:ml-0 lg:flex lg:justify-center lg:gap-3.5 xl:ml-4 xl:gap-6"
+        >
+          <a href="#"
+            ><img
+              src="./images/image-product-1-thumbnail.jpg"
+              class="small-images w-[4.2rem] rounded-[10px] xl:w-[6rem]"
+          /></a>
+          <a href="#"
+            ><img
+              src="./images/image-product-2-thumbnail.jpg"
+              class="small-images w-[4.2rem] rounded-[10px] xl:w-[6rem]"
+          /></a>
+          <a href="#"
+            ><img
+              src="./images/image-product-3-thumbnail.jpg"
+              class="small-images w-[4.2rem] rounded-[10px] xl:w-[6rem]"
+          /></a>
+          <a href="#"
+            ><img
+              src="./images/image-product-4-thumbnail.jpg"
+              class="small-images w-[4.2rem] rounded-[10px] xl:w-[6rem]"
+          /></a>
         </div>
-        <script src="./src/main.js" type="module"></script>
-    </body>
+      </section>
+
+      <!-- basket filled information -->
+      <div
+        class="basket-filled-info absolute top-[10%] right-0 left-0 mx-2 hidden max-w-[40rem] rounded-[5px] bg-[var(--white)] p-4 shadow-2xl sm:top-8 sm:-right-2.5 sm:mx-6 sm:max-w-[20rem] sm:flex-col sm:justify-self-end md:hidden"
+      >
+        <h2
+          class="mb-4 font-[var(--font-weight-700)] text-[var(--very-dark-blue)]"
+        >
+          Cart
+        </h2>
+        <hr
+          class="-mx-4 my-[1.5rem] h-0.5 border-none bg-[var(--light-grayish-blue)]"
+        />
+        <div class="flex items-center gap-6">
+          <img
+            class="w-[5rem] rounded-[5px]"
+            src="./images/image-product-1.jpg"
+          />
+          <div>
+            <p>Fall Limited Edition Sneakers</p>
+            <p>
+              $125.00 x 3
+              <span
+                class="font-[var(--font-weight-700)] text-[var(--very-dark-blue)]"
+                >$375.00</span
+              >
+            </p>
+          </div>
+          <button type="button" class="cursor-pointer">
+            <img src="./images/icon-delete.svg" alt="delete icon" />
+          </button>
+        </div>
+        <button
+          type="button"
+          class="my-4 w-full cursor-pointer rounded-[10px] bg-[var(--orange)] py-4 font-[var(--font-weight-700)] text-[var(--very-dark-blue)] transition-all duration-500 ease-in-out hover:bg-orange-300"
+        >
+          Checkout
+        </button>
+      </div>
+
+      <!-- basket empty information -->
+      <div
+        class="basket-empty-info absolute top-[5%] right-0 left-0 mx-6 hidden h-[18rem] max-w-[25rem] rounded-[10px] bg-[var(--white)] p-7 md:h-[28rem]"
+      >
+        <h2
+          class="mb-4 font-[var(--font-weight-700)] text-[var(--very-dark-blue)]"
+        >
+          Cart
+        </h2>
+        <hr
+          class="-mx-4 my-[1.5rem] h-0.5 border-none bg-[var(--light-grayish-blue)]"
+        />
+        <div
+          class="mt-[5rem] flex items-center justify-center font-[var(--font-weight-700)]"
+        >
+          <p>Your cart is empty.</p>
+        </div>
+      </div>
+
+      <!-- content section -->
+      <section class="px-6 lg:-mt-6">
+        <h3
+          class="mb-4 font-[var(--font-weight-700)] uppercase sm:mt-4 md:mt-4 lg:mt-0"
+        >
+          Sneaker Company
+        </h3>
+        <h2
+          class="mb-4 text-3xl font-[var(--font-weight-700)] text-[var(--very-dark-blue)] lg:pr-4 lg:text-4xl"
+        >
+          Fall Limited Edition Sneakers
+        </h2>
+        <p class="mb-4 lg:pr-4.5">
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they’ll withstand everything
+          the weather can offer.
+        </p>
+        <div
+          class="mb-4 flex items-center justify-between font-[var(--font-weight-700)] lg:mb-4 lg:flex-col lg:items-start"
+        >
+          <div class="flex items-center gap-4 lg:mb-2">
+            <p class="text-2xl text-[var(--very-dark-blue)]">$125.00</p>
+            <p
+              class="rounded-[5px] bg-[var(--very-dark-blue)] px-3 py-1 text-[var(--light-grayish-blue)]"
+            >
+              50%
+            </p>
+          </div>
+          <p class="line-through sm:mr-2">$250.00</p>
+        </div>
+
+        <!-- add to cart div  -->
+        <div
+          class="sm:flex sm:items-center sm:justify-between lg:justify-normal lg:gap-4"
+        >
+          <div
+            class="mb-4 flex justify-between rounded-[10px] bg-[var(--light-grayish-blue)] px-5 py-4 sm:mb-0 sm:w-[11rem]"
+          >
+            <button type="button" class="cursor-pointer sm:justify-self-start">
+              <img src="./images/icon-minus.svg" />
+            </button>
+            <form action="#">
+              <label for="input">
+                <input
+                  type="text"
+                  name="text"
+                  id="input"
+                  value="0"
+                  class="max-w-[25px] text-center font-[var(--font-weight-700)] text-[var(--very-dark-blue)]"
+                />
+              </label>
+            </form>
+            <button type="button" class="cursor-pointer">
+              <img src="./images/icon-plus.svg" />
+            </button>
+          </div>
+          <!-- cart button -->
+          <button
+            type="button"
+            class="flex w-full cursor-pointer items-center justify-center gap-4 rounded-[6px] border-[var(--orange)] bg-[var(--orange)] py-4 hover:border hover:bg-[var(--pale-orange)] sm:max-w-[15rem] lg:max-w-[20rem]"
+          >
+            <img src="./images/icon-cart.svg" alt="cart icon" />
+            <p
+              class="font-[var(--font-weight-700)] text-[var(--very-dark-blue)] hover:text-[var(--orange)]"
+            >
+              Add to cart
+            </p>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="text-center text-[14px]">
+        Challenge by
+        <a
+          href="https://www.frontendmentor.io?ref=challenge"
+          target="_blank"
+          class="text-[hsl(228,45%,44%)]"
+          >Frontend Mentor</a
+        >. Coded by
+        <a
+          href="https://github.com/Sulley-Sadick"
+          class="text-[hsl(228,45%,44%)]"
+          >Sadick Sulley</a
+        >.
+      </div>
+      <script src="./src/main.js" type="module"></script>
+    </footer>
+  </body>
 </html>
