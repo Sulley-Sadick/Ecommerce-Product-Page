@@ -23,9 +23,37 @@
     --font-family: "Kumbh Sans", sans-serif;
     --font-weight-400: 400;
     --font-weight-700: 700;
+
+    .cart {
+      position: relative;
+    }
+
+    /* carts quantity styles */
+    .cart::after {
+      width: 26px;
+      height: 18px;
+      position: absolute;
+      content: attr(data-cart-counter);
+      right: -10px;
+      top: -10px;
+      background-color: var(--orange);
+      color: var(--white);
+      border-radius: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-block: 7px;
+      opacity: 0;
+    }
+
+    /* carts quantity styles to be used dynamically be javascript */
+    .cart::after.active {
+      opacity: 1;
+    }
   }
 }
 
+/* utility styles */
 @layer utilities {
   .border-bottom {
     @apply lg:border-[var(--orange)] lg:hover:border-b-4;
@@ -35,13 +63,28 @@
     @apply hover:pb-[3rem];
   }
 
+  /* overlay to be used dynamically by javascript */
   .overlay {
-    @apply absolute top-0 left-0 z-10 h-full w-full bg-[var(--overlay-color)] backdrop-blur-sm;
+    @apply fixed top-0 left-0 z-[6px] hidden h-screen w-screen bg-[var(--overlay-color)] lg:z-10;
   }
-}
 
-@layer components {
-  .overlay {
-    background-color: var(--lightbox-bg-color);
+  /*to be used dynamically by javascript  */
+  .block {
+    @apply block;
+  }
+
+  /* hover on product images */
+  .image-hover {
+    @apply hover:opacity-60;
+  }
+
+  /* outline for product images to be used by javascript */
+  .image-outline {
+    @apply outline-4 outline-[var(--orange)];
+  }
+
+  /* to be used to show the lightbox container */
+  .lightbox.active {
+    @apply flex;
   }
 }
