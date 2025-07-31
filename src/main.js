@@ -23,9 +23,11 @@ const lightbox = document.querySelector(".lightbox");
 const closeLightBox = document.querySelector(".close-lightbox-icon");
 const lightBoxImages = document.querySelectorAll(".lightbox-images");
 const lightBoxMainImage = document.querySelector(".lightbox-main-image");
+const cartButton = document.querySelector(".cart-button");
 
 // state variables
 let currrentImageIndex = 0;
+let inputValue = 0;
 const productImages = [
   "/images/image-product-1.jpg",
   "/images/image-product-2.jpg",
@@ -39,7 +41,7 @@ const openLinks = () => {
   overlay.classList.add("block");
 };
 
-// Function: To open links on small screen
+// Function: To close links on small screen
 const closeLinks = () => {
   links.classList.remove("block");
   overlay.classList.remove("block");
@@ -67,7 +69,7 @@ overlay.addEventListener("click", () => {
   }
 });
 
-// close links when escape key is clicked
+// close links when Escape key is pressed
 window.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && links.classList.contains("block")) {
     closeLinks();
@@ -157,9 +159,27 @@ lightBoxImages.forEach((thumb, index) => {
   });
 });
 
+// close lightbox container
+closeLightBox.addEventListener("click", closeLightContainer);
+
 // On the clicked on the plus icon, I want the inputField.value to increase by one
 plusIcon.addEventListener("click", () => {
-  let inputValue = parseInt(inputField.value);
+  inputValue = parseInt(inputField.value);
   inputValue += 1;
   inputField.value = inputValue;
 });
+
+// On the clicked on the minus icon, I want the inputField.value to decrease by one
+minusIcons.addEventListener("click", () => {
+  if (inputValue > 0) {
+    inputValue = parseInt(inputField.value);
+    inputValue -= 1;
+    inputField.value = inputValue;
+  } else {
+    inputValue = 0;
+    inputField.value = inputValue;
+  }
+});
+
+// add eventListener to the cart button
+cartButton.addEventListener("click", () => {});

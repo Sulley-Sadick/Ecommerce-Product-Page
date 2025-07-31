@@ -78,12 +78,12 @@
     @apply hover:opacity-60;
   }
 
-  /* outline for product images to be used by javascript */
+  /* outline for product images/ lightbox images to be used by javascript */
   .image-outline {
     @apply outline-4 outline-[var(--orange)];
   }
 
-  /* to be used to show the lightbox container */
+  /* to be used to show the lightbox container by javascript */
   .lightbox.active {
     @apply flex;
   }
