@@ -17,13 +17,17 @@ const basketFilledInfo = document.querySelector(".basket-filled-info");
 const basketEmptyInfo = document.querySelector(".basket-empty-info");
 const plusIcon = document.querySelector(".plus-icon");
 const inputField = document.querySelector(".input");
-const minusIcons = document.querySelector(".minus-icon");
+const minusIcon = document.querySelector(".minus-icon");
 const overlay = document.querySelector(".overlay");
 const lightbox = document.querySelector(".lightbox");
 const closeLightBox = document.querySelector(".close-lightbox-icon");
 const lightBoxImages = document.querySelectorAll(".lightbox-images");
 const lightBoxMainImage = document.querySelector(".lightbox-main-image");
 const cartButton = document.querySelector(".cart-button");
+let finalPrice = document.querySelector(".final-price");
+let itemQuantity = document.querySelector(".item-quantity");
+let basePrice = document.querySelector(".base-price");
+const deleteIcon = document.querySelector(".delete-icon");
 
 // state variables
 let currrentImageIndex = 0;
@@ -47,34 +51,11 @@ const closeLinks = () => {
   overlay.classList.remove("block");
 };
 
-// Function: To close lightbox container
+// Function: To close lightbox container on the large screen
 const closeLightContainer = () => {
   lightbox.classList.remove("active");
   overlay.classList.remove("block");
 };
-
-// Open links on small screen
-menuIcon.addEventListener("click", openLinks);
-
-// close links on small screen when the close button is clicked
-closeMenuIcon.addEventListener("click", closeLinks);
-
-//close links when clicked on the overlay between small screen and also large screen
-overlay.addEventListener("click", () => {
-  if (window.innerWidth <= 920) {
-    closeLinks();
-  } else {
-    closeLinks();
-    lightbox.classList.remove("active");
-  }
-});
-
-// close links when Escape key is pressed
-window.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && links.classList.contains("block")) {
-    closeLinks();
-  }
-});
 
 // Function: To update current image
 const updateCurrentImage = function (index, isLight = false) {
@@ -120,6 +101,86 @@ const navigateImage = (direction) => {
   updateCurrentImage(newIndex);
 };
 
+// Function: To update cart quantity
+const updateCartQuantity = (change) => {
+  inputValue = parseInt(inputField.value);
+
+  if (isNaN(inputValue) || inputValue < 0) {
+    inputValue = 0;
+  }
+
+  inputValue += change;
+
+  if (inputValue < 0) {
+    inputValue = 0;
+  }
+  inputField.value = inputValue;
+};
+
+// Function: To update cart items, inputField value and item price and item quantity
+const updateCartIcon = () => {
+  const newInput = parseInt(inputField.value);
+
+  if (isNaN(newInput) || newInput < 0) {
+    newInput = 0;
+  }
+
+  cartCounter.dataset.cartCounter = newInput;
+  itemQuantity.textContent = newInput;
+
+  const price =
+    parseInt(itemQuantity.textContent) * parseInt(basePrice.textContent);
+
+  finalPrice.textContent = `$${price.toFixed(2)}`;
+
+  // show cart value if cart >= 1 else hide
+  newInput >= 1
+    ? cartCounter.classList.add("active")
+    : cartCounter.classList.remove("active");
+
+  if (basketFilledInfo.classList.contains("block") && newInput < 1) {
+    basketFilledInfo.classList.remove("block");
+    basketEmptyInfo.classList.add("block");
+  } else {
+    showBasketFilled();
+  }
+};
+
+// Function: To show basket filled
+const showBasketFilled = () => {
+  basketEmptyInfo.classList.remove("block");
+  basketFilledInfo.classList.toggle("block");
+};
+
+// Function: To show basket  empty
+const showBasketEmpty = () => {
+  basketEmptyInfo.classList.toggle("block");
+  basketFilledInfo.classList.remove("block");
+};
+
+// Open links on small screen
+menuIcon.addEventListener("click", openLinks);
+
+// close links on small screen when the close button is clicked
+closeMenuIcon.addEventListener("click", closeLinks);
+
+//close links when clicked on the overlay between small screen and also large screen
+overlay.addEventListener("click", () => {
+  if (window.innerWidth <= 920) {
+    closeLinks();
+  } else {
+    closeLinks();
+    lightbox.classList.remove("active");
+  }
+});
+
+// close links when Escape key is pressed
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && links.classList.contains("block")) {
+    closeLinks();
+  }
+});
+
 //Adding eventListener next icons
 nextIcons.forEach((nextIcon) => {
   nextIcon.addEventListener("click", () => {
@@ -162,24 +223,45 @@ lightBoxImages.forEach((thumb, index) => {
 // close lightbox container
 closeLightBox.addEventListener("click", closeLightContainer);
 
-// On the clicked on the plus icon, I want the inputField.value to increase by one
+// Adding EventListener to the plusIcon
 plusIcon.addEventListener("click", () => {
-  inputValue = parseInt(inputField.value);
-  inputValue += 1;
-  inputField.value = inputValue;
+  updateCartQuantity(1);
 });
 
-// On the clicked on the minus icon, I want the inputField.value to decrease by one
-minusIcons.addEventListener("click", () => {
-  if (inputValue > 0) {
-    inputValue = parseInt(inputField.value);
-    inputValue -= 1;
-    inputField.value = inputValue;
+// Adding EventListener to the minusIcon
+minusIcon.addEventListener("click", () => {
+  updateCartQuantity(-1);
+});
+
+// add eventListener to the cartButton
+cartButton.addEventListener("click", updateCartIcon);
+
+// show basketFilledInfo if inputField.value >=1 else show emptyBasketInfo
+cartCounter.addEventListener("click", () => {
+  let newInput = parseInt(inputField.value);
+
+  if (newInput < 1) {
+    showBasketEmpty();
   } else {
-    inputValue = 0;
-    inputField.value = inputValue;
+    showBasketFilled();
   }
 });
 
-// add eventListener to the cart button
-cartButton.addEventListener("click", () => {});
+// Ad eventListener to the delete icon to delete items
+deleteIcon.addEventListener("click", () => {
+  showBasketEmpty();
+  cartCounter.classList.remove("active");
+  inputField.value = 0;
+});
+
+// To show content based on different screen sizes
+window.addEventListener("resize", () => {
+  if (window.innerWidth < 920) {
+    lightbox.classList.remove("active");
+    overlay.classList.remove("block");
+    links.classList.remove("block");
+  } else {
+    lightbox.classList.remove("active");
+    overlay.classList.remove("block");
+  }
+});

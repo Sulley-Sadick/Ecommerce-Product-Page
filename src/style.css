@@ -24,6 +24,7 @@
     --font-weight-400: 400;
     --font-weight-700: 700;
 
+    /* cart icon */
     .cart {
       position: relative;
     }
@@ -44,10 +45,11 @@
       align-items: center;
       padding-block: 7px;
       opacity: 0;
+      cursor: pointer;
     }
 
     /* carts quantity styles to be used dynamically be javascript */
-    .cart::after.active {
+    .cart.active::after {
       opacity: 1;
     }
   }
@@ -63,12 +65,12 @@
     @apply hover:pb-[3rem];
   }
 
-  /* overlay to be used dynamically by javascript */
+  /* overlay to be used dynamically by javascript  to show overlay*/
   .overlay {
-    @apply fixed top-0 left-0 z-[6px] hidden h-screen w-screen bg-[var(--overlay-color)] lg:z-10;
+    @apply absolute top-0 left-0 z-[6px] hidden min-h-[100%] w-screen bg-[var(--overlay-color)] lg:z-10;
   }
 
-  /*to be used dynamically by javascript  */
+  /*to be used dynamically by javascript to show or hide element */
   .block {
     @apply block;
   }

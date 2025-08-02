@@ -166,14 +166,15 @@
           <div>
             <p>Fall Limited Edition Sneakers</p>
             <p>
-              $125.00 x 3
+              $<span class="base-price">125.00</span> x
+              <span class="item-quantity">3</span>
               <span
-                class="font-[var(--font-weight-700)] text-[var(--very-dark-blue)]"
+                class="final-price font-[var(--font-weight-700)] text-[var(--very-dark-blue)]"
                 >$375.00</span
               >
             </p>
           </div>
-          <button type="button" class="cursor-pointer">
+          <button type="button" class="delete-icon cursor-pointer">
             <img src="./images/icon-delete.svg" alt="delete icon" />
           </button>
         </div>
@@ -374,7 +375,7 @@
       </div>
       <script src="./src/main.js" type="module"></script>
     </footer>
-    <!-- overlay efffect be used by javascript -->
+    <!-- overlay effectn to be used by javascript -->
     <div class="overlay"></div>
   </body>
 </html>
