@@ -30,14 +30,12 @@ let basePrice = document.querySelector(".base-price");
 const deleteIcon = document.querySelector(".delete-icon");
 
 // state variables
-let currrentImageIndex = 0;
+let currentIndex = 0;
 let inputValue = 0;
-const productImages = [
-  "/images/image-product-1.jpg",
-  "/images/image-product-2.jpg",
-  "/images/image-product-3.jpg",
-  "/images/image-product-4.jpg",
-];
+
+// loading the main image when page loads
+mainImage.src = thumbnailImages[currentIndex].src;
+lightBoxMainImage.src = lightBoxImages[currentIndex].src;
 
 // Function: To open links on small screen
 const openLinks = () => {
@@ -55,50 +53,6 @@ const closeLinks = () => {
 const closeLightContainer = () => {
   lightbox.classList.remove("active");
   overlay.classList.remove("block");
-};
-
-// Function: To update current image
-const updateCurrentImage = function (index, isLight = false) {
-  currrentImageIndex = index;
-
-  const imagePath = productImages[index];
-  mainImage.src = imagePath;
-  lightBoxMainImage.src = imagePath;
-
-  const thumbs = isLight ? lightBoxImages : thumbnailImages;
-
-  // Product gallery images
-  thumbs.forEach((thumb, i) => {
-    if (index === i) {
-      thumb.classList.add("image-outline");
-    } else {
-      thumb.classList.remove("image-outline");
-    }
-  });
-
-  // Lightbox gallery Images
-  if (!isLight) {
-    lightBoxImages.forEach((thumb, i) => {
-      if (index === i) {
-        thumb.classList.add("image-outline");
-      } else {
-        thumb.classList.remove("image-outline");
-      }
-    });
-  }
-};
-
-// Function: To navigate image based on the direction
-const navigateImage = (direction) => {
-  let newIndex = currrentImageIndex + direction;
-
-  if (newIndex < 0) {
-    newIndex = productImages.length - 1;
-  } else if (newIndex >= productImages.length) {
-    newIndex = 0;
-  }
-
-  updateCurrentImage(newIndex);
 };
 
 // Function: To update cart quantity
@@ -119,7 +73,7 @@ const updateCartQuantity = (change) => {
 
 // Function: To update cart items, inputField value and item price and item quantity
 const updateCartIcon = () => {
-  const newInput = parseInt(inputField.value);
+  let newInput = parseInt(inputField.value);
 
   if (isNaN(newInput) || newInput < 0) {
     newInput = 0;
@@ -166,7 +120,7 @@ closeMenuIcon.addEventListener("click", closeLinks);
 
 //close links when clicked on the overlay between small screen and also large screen
 overlay.addEventListener("click", () => {
-  if (window.innerWidth <= 920) {
+  if (isMobile()) {
     closeLinks();
   } else {
     closeLinks();
@@ -181,57 +135,145 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
-//Adding eventListener next icons
-nextIcons.forEach((nextIcon) => {
-  nextIcon.addEventListener("click", () => {
-    navigateImage(1);
-  });
-});
+// Function: To change interactivity based on the screen size
+const isMobile = () => {
+  return window.innerWidth <= 920;
+};
 
-//Adding eventListener previous icons
-previousIcons.forEach((previousIcon) => {
+// Looping through the previousIcons
+previousIcons.forEach((previousIcon) => [
   previousIcon.addEventListener("click", () => {
-    navigateImage(-1);
-  });
-});
+    // remove image outline from all thumbnailImages
+    thumbnailImages.forEach((t) => {
+      t.classList.remove("image-outline");
+    });
 
-// when mainImage is clicked on large screen
+    // remove image outline from all lightBoxImages
+    lightBoxImages.forEach((l) => {
+      l.classList.remove("image-outline");
+    });
+
+    //substract 1 from currentIndex and add thumbnails.length modulo by thumbnail.length to make it loop back to the previous index
+    currentIndex =
+      (currentIndex - 1 + thumbnailImages.length) % thumbnailImages.length;
+
+    //switch mainImage with the thumbnailImages based on the currentIndex
+    mainImage.src = thumbnailImages[currentIndex].src;
+
+    // add image outline to the selected image on the thumbnailImages
+    thumbnailImages[currentIndex].classList.add("image-outline");
+
+    //switch lightBoxMainImage with the lightBoxImages based on the currentIndex
+    lightBoxMainImage.src = thumbnailImages[currentIndex].src;
+
+    // add image outline to the selected image on the lightBoxImages
+    lightBoxImages[currentIndex].classList.add("image-outline");
+  }),
+]);
+
+// on the click of the next icon
+nextIcons.forEach((nextIcon) => [
+  nextIcon.addEventListener("click", () => {
+    // remove image outline from all thumbnailImages
+    thumbnailImages.forEach((t) => {
+      t.classList.remove("image-outline");
+    });
+
+    // remove image outline from all lightBoxlImages
+    lightBoxImages.forEach((l) => {
+      l.classList.remove("image-outline");
+    });
+
+    // add 1 to the currrent index  modulo by thumbnial.length;
+    currentIndex = (currentIndex + 1) % thumbnailImages.length;
+
+    // switch mainImage with the current thumbnialImages
+    mainImage.src = thumbnailImages[currentIndex].src;
+    // add image outline to the selected image from the thumbnailImages
+    thumbnailImages[currentIndex].classList.add("image-outline");
+
+    // switch lightBoxMain based on the currrent lightbox image
+    lightBoxMainImage.src = lightBoxImages[currentIndex].src;
+
+    // add image outline on the lightbox image selected
+    lightBoxImages[currentIndex].classList.add("image-outline");
+  }),
+]);
+
+// when clicked on the mainImage
 mainImage.addEventListener("click", () => {
-  if (window.innerWidth >= 920) {
+  // On the large screen
+  if (!isMobile()) {
+    // show lightbox container
     lightbox.classList.add("active");
+
+    // show overlay
     overlay.classList.add("block");
-  } else {
-    lightbox.classList.remove("active");
-    overlay.classList.remove("block");
+
+    // looping through all lightBoxImages on the large screen
+    lightBoxImages.forEach((lightboxImage, index) => {
+      // On the click of the lightboImage
+      lightboxImage.addEventListener("click", () => {
+        // remove image outline from all thumbnailImages
+        thumbnailImages.forEach((t) => {
+          t.classList.remove("image-outline");
+        });
+
+        // remove image outline from all lightboxImages
+        lightBoxImages.forEach((l) => {
+          l.classList.remove("image-outline");
+        });
+
+        // reassign currentIndex to the index
+        currentIndex = index;
+
+        // switch the lightboxMainImage with the lightBoxImages based on the currentIndex
+        lightBoxMainImage.src = lightBoxImages[index].src;
+
+        // switch the mainImage with the thumbnailImages based on the currentIndex
+        mainImage.src = thumbnailImages[index].src;
+
+        thumbnailImages[index].classList.add("image-outline");
+
+        // add image outline on the lightbox image selected
+        lightboxImage.classList.add("image-outline");
+      });
+    });
   }
 });
 
-// when the images are clicked on the large screen
+// Looping through thumbnailsImages
 thumbnailImages.forEach((thumb, index) => {
+  // on the click on thumb
   thumb.addEventListener("click", () => {
-    updateCurrentImage(index);
+    //remove image outline from all the thumbnailImages
+    thumbnailImages.forEach((t) => {
+      t.classList.remove("image-outline");
+    });
+
+    // reassign currentIndex to index
+    // currentIndex = index;
+
+    // switch mainImage with the thumbnailImages based on the index
+    mainImage.src = thumbnailImages[index].src;
+
+    // add image outline to the selected image.
+    thumb.classList.add("image-outline");
   });
 });
 
-// when the images are clicked on when lightbox is set to true
-lightBoxImages.forEach((thumb, index) => {
-  thumb.addEventListener("click", () => {
-    updateCurrentImage(index, true);
-  });
+// when clicked on the minusIcon
+minusIcon.addEventListener("click", () => {
+  updateCartQuantity(-1);
 });
 
-// close lightbox container
-closeLightBox.addEventListener("click", closeLightContainer);
-
-// Adding EventListener to the plusIcon
+// when clicked on the plusIcon
 plusIcon.addEventListener("click", () => {
   updateCartQuantity(1);
 });
 
-// Adding EventListener to the minusIcon
-minusIcon.addEventListener("click", () => {
-  updateCartQuantity(-1);
-});
+// close lightbox container
+closeLightBox.addEventListener("click", closeLightContainer);
 
 // add eventListener to the cartButton
 cartButton.addEventListener("click", updateCartIcon);
@@ -256,7 +298,7 @@ deleteIcon.addEventListener("click", () => {
 
 // To show content based on different screen sizes
 window.addEventListener("resize", () => {
-  if (window.innerWidth < 920) {
+  if (isMobile()) {
     lightbox.classList.remove("active");
     overlay.classList.remove("block");
     links.classList.remove("block");
