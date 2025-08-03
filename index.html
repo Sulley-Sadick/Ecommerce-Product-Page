@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/Ecommerce-Product-Page/assets/favicon-32x32-DQjEQYWa.png"
+    />
+
+    <!-- title for the project -->
+    <title>Frontend Mentor | E-commerce product page</title>
+    <!-- google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- fontawesome link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+
+    <!-- stylesheet link -->
+    <script type="module" crossorigin src="/Ecommerce-Product-Page/assets/index-Cyq0JT5j.js"></script>
+    <link rel="stylesheet" crossorigin href="/Ecommerce-Product-Page/assets/index-C4XA8CoN.css">
+  </head>
+  <body
+    class="relative h-full w-full bg-[var(--white)] py-6 font-[var(--font-family)] text-[var(--dark-grayish-blue)] md:px-[7rem]"
+  >
+    <!-- navbar container -->
+    <nav
+      class="flex items-center justify-between px-6 lg:border-b-4 lg:border-[var(--light-grayish-blue)] lg:px-0 lg:pb-[2rem]"
+    >
+      <div class="flex items-center gap-[1.5rem] justify-self-start">
+        <button type="button" class="menu-icon cursor-pointer lg:hidden">
+          <img
+            src="data:image/svg+xml,%3csvg%20width='16'%20height='15'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M16%2012v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z'%20fill='%2369707D'%20fill-rule='evenodd'/%3e%3c/svg%3e"
+            alt="menu icon "
+            class="min-w-[1rem]"
+          />
+        </button>
+        <img src="data:image/svg+xml,%3csvg%20width='138'%20height='20'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M8.217%2020c4.761%200%207.519-.753%207.519-4.606%200-3.4-3.38-4.172-6.66-4.682l-.56-.085-.279-.041-.35-.053c-2.7-.405-3.18-.788-3.18-1.471%200-.478.49-1.331%202.843-1.331%202.455%200%203.493.647%203.493%201.87v.134h4.281v-.133c0-2.389-1.35-5.238-7.774-5.238-5.952%200-7.201%202.584-7.201%204.752%200%203.097%202.763%204.086%207.223%204.675.21.028.433.054.659.081%201.669.197%203.172.42%203.172%201.585%200%201.01-1.615%201.222-3.298%201.222-2.797%200-3.784-.593-3.784-1.92v-.134H.002L0%2014.926v.317c.008.79.118%201.913%201.057%202.862C2.303%2019.362%204.712%2020%208.217%2020Zm13.21%200v-7.49c0-2.104.547-4.423%204.176-4.423%203.915%200%203.778%202.777%203.768%204.042V20h4.18v-7.768c0-2.264-.176-7.766-6.732-7.766-2.778%200-4.192.911-5.195%202.28h-.197V4.467H17.22V20h4.207Zm21.959%200c5.094%200%207.787-2.07%208.217-5.405H47.53c-.386%201.02-1.63%201.72-4.143%201.72-2.721%200-3.962-1.03-4.25-3.106h12.527c.24-2.13-.029-5.417-3.026-7.44v.005c-1.312-.915-3.056-1.465-5.251-1.465-5.24%200-8.336%202.772-8.336%207.845%200%205.17%203.02%207.846%208.336%207.846Zm4.099-9.574h-8.188c.486-1.574%201.764-2.431%204.089-2.431%202.994%200%203.755%201.267%204.099%202.431ZM70.499%2020V4.457H66.29V6.74h-.176c-1.053-1.377-2.809-2.283-5.677-2.283-6.433%200-7.225%205.293-7.253%207.635v.137c0%202.092.732%207.771%207.241%207.771%202.914%200%204.684-.818%205.734-2.169h.131V20H70.5Zm-8.854-3.623c-3.996%200-4.447-3.032-4.447-4.148%200-1.21.426-4.148%204.455-4.148%203.631%200%204.374%202.044%204.374%204.148%200%202.35-.742%204.148-4.382%204.148ZM88.826%2020l-6.529-9.045%206.588-6.488h-5.827l-6.836%206.756V0h-4.187v19.954h4.187V16.94l3.02-2.976L83.6%2020h5.226Zm9.9%200c5.094%200%207.786-2.07%208.217-5.405h-4.074c-.387%201.02-1.63%201.72-4.143%201.72-2.721%200-3.962-1.03-4.25-3.106h12.527c.24-2.13-.029-5.417-3.026-7.44v.005c-1.312-.915-3.057-1.465-5.251-1.465-5.24%200-8.336%202.772-8.336%207.845%200%205.17%203.02%207.846%208.336%207.846Zm4.098-9.574h-8.187c.485-1.574%201.763-2.431%204.089-2.431%202.994%200%203.755%201.267%204.098%202.431ZM112.76%2020v-6.97c0-2.103.931-4.542%204.05-4.542%201.33%200%202.393.236%202.785.346l.67-3.976c-.728-.16-1.626-.392-2.757-.392-2.665%200-3.622.794-4.486%202.282h-.262V4.466h-4.21V20h4.21Zm17.221%200c4.761%200%207.519-.753%207.519-4.606%200-3.4-3.38-4.172-6.66-4.682l-.56-.085-.279-.041-.349-.053c-2.701-.405-3.181-.788-3.181-1.471%200-.478.49-1.331%202.843-1.331%202.455%200%203.493.647%203.493%201.87v.134h4.282v-.133c0-2.389-1.35-5.238-7.775-5.238-5.952%200-7.201%202.584-7.201%204.752%200%203.097%202.763%204.086%207.224%204.675.21.028.432.054.658.081%201.669.197%203.172.42%203.172%201.585%200%201.01-1.615%201.222-3.298%201.222-2.796%200-3.784-.593-3.784-1.92v-.134h-4.319l-.001.301v.317c.008.79.117%201.913%201.056%202.862%201.246%201.257%203.655%201.895%207.16%201.895Z'%20fill='%231D2026'%20fill-rule='nonzero'/%3e%3c/svg%3e" alt="sneaker image" class="max-w-[9rem]" />
+      </div>
+      <div
+        class="links absolute top-0 bottom-0 left-0 z-[5] hidden w-[67%] bg-[var(--white)] pt-[2rem] pl-6 lg:static lg:top-auto lg:flex lg:items-center lg:pt-0 lg:pl-0"
+      >
+        <button type="button" class="close-menu-icon cursor-pointer lg:hidden">
+          <img src="data:image/svg+xml,%3csvg%20width='14'%20height='15'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='m11.596.782%202.122%202.122L9.12%207.499l4.597%204.597-2.122%202.122L7%209.62l-4.595%204.597-2.122-2.122L4.878%207.5.282%202.904%202.404.782l4.595%204.596L11.596.782Z'%20fill='%2369707D'%20fill-rule='evenodd'/%3e%3c/svg%3e" class="mb-[3rem] w-[1.2rem]" />
+        </button>
+        <ul
+          class="mt-5 gap-[2rem] font-[var(--font-weight-700)] text-[var(--very-dark-blue)] lg:ml-6 lg:flex lg:items-center lg:justify-center lg:font-[var(--font-weight-400)] lg:text-[var(--dark-grayish-blue)] [&>*]:mb-4"
+        >
+          <li>
+            <a class="border-bottom padding-bottom" href="#">Collections</a>
+          </li>
+          <li>
+            <a href="#" class="border-bottom padding-bottom">Men</a>
+          </li>
+          <li>
+            <a href="#" class="border-bottom padding-bottom">Women</a>
+          </li>
+          <li>
+            <a href="#" class="border-bottom padding-bottom">About</a>
+          </li>
+          <li>
+            <a href="#" class="border-bottom padding-bottom">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="flex items-center gap-[1.5rem]">
+        <button type="button" data-cart-counter="3" class="cart">
+          <img
+            src="data:image/svg+xml,%3csvg%20width='22'%20height='20'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M20.925%203.641H3.863L3.61.816A.896.896%200%200%200%202.717%200H.897a.896.896%200%201%200%200%201.792h1l1.031%2011.483c.073.828.52%201.726%201.291%202.336C2.83%2017.385%204.099%2020%206.359%2020c1.875%200%203.197-1.87%202.554-3.642h4.905c-.642%201.77.677%203.642%202.555%203.642a2.72%202.72%200%200%200%202.717-2.717%202.72%202.72%200%200%200-2.717-2.717H6.365c-.681%200-1.274-.41-1.53-1.009l14.321-.842a.896.896%200%200%200%20.817-.677l1.821-7.283a.897.897%200%200%200-.87-1.114ZM6.358%2018.208a.926.926%200%200%201%200-1.85.926.926%200%200%201%200%201.85Zm10.015%200a.926.926%200%200%201%200-1.85.926.926%200%200%201%200%201.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383%205.53Z'%20fill='%2369707D'%20fill-rule='nonzero'/%3e%3c/svg%3e"
+            alt="cart icon"
+            class="min-w-[1.5rem] hover:cursor-pointer"
+          />
+        </button>
+        <button type="button">
+          <img
+            src="/Ecommerce-Product-Page/assets/image-avatar-DVd-Kri7.png"
+            alt="person profile"
+            class="max-w-[2.5rem] rounded-full outline-[var(--orange)] hover:cursor-pointer hover:outline-2"
+          />
+        </button>
+      </div>
+    </nav>
+
+    <!-- main container -->
+    <main
+      class="relative mb-4 gap-[3rem] lg:mt-[3rem] lg:grid lg:grid-cols-2 lg:grid-rows-1 lg:items-center"
+    >
+      <!-- images section -->
+      <section class="relative">
+        <!-- previous icon -->
+        <button type="button" class="previous-icon cursor-pointer lg:hidden">
+          <img
+            src="data:image/svg+xml,%3csvg%20width='12'%20height='18'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M11%201%203%209l8%208'%20stroke='%231D2026'%20stroke-width='3'%20fill='none'%20fill-rule='evenodd'/%3e%3c/svg%3e"
+            alt="previous icon"
+            class="absolute top-[47%] left-5 rounded-[50%] bg-[var(--light-grayish-blue)] p-3"
+          />
+        </button>
+        <!-- main image -->
+        <button type="button" class="w-full cursor-pointer">
+          <img
+            class="main-image w-full lg:mr-8 lg:w-[85%] lg:justify-self-end lg:rounded-[10px]"
+            src="/Ecommerce-Product-Page/assets/image-product-1-D36l1Pee.jpg"
+          />
+        </button>
+
+        <!-- next icon -->
+        <button type="button" class="next-icon cursor-pointer lg:hidden">
+          <img
+            src="data:image/svg+xml,%3csvg%20width='13'%20height='18'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='m2%201%208%208-8%208'%20stroke='%231D2026'%20stroke-width='3'%20fill='none'%20fill-rule='evenodd'/%3e%3c/svg%3e"
+            alt="next icon"
+            class="absolute top-[47%] right-6 rounded-[50%] bg-[var(--light-grayish-blue)] p-3"
+          />
+        </button>
+
+        <!-- product images -->
+        <div
+          class="hidden lg:mt-6 lg:ml-0 lg:flex lg:justify-center lg:gap-3.5 xl:ml-4 xl:gap-6"
+        >
+          <button type="button">
+            <img
+              src="/Ecommerce-Product-Page/assets/image-product-1-D36l1Pee.jpg"
+              class="small-images image-hover w-[4.2rem] cursor-pointer rounded-[10px] xl:w-[6rem]"
+            />
+          </button>
+          <button type="button">
+            <img
+              src="/Ecommerce-Product-Page/assets/image-product-2-BT5cmuDx.jpg"
+              class="small-images image-hover w-[4.2rem] cursor-pointer rounded-[10px] xl:w-[6rem]"
+            />
+          </button>
+          <button type="button">
+            <img
+              src="/Ecommerce-Product-Page/assets/image-product-3-CDkTofMU.jpg"
+              class="small-images image-hover w-[4.2rem] cursor-pointer rounded-[10px] xl:w-[6rem]"
+            />
+          </button>
+          <button type="button">
+            <img
+              src="/Ecommerce-Product-Page/assets/image-product-4-DXKEAM1K.jpg"
+              class="small-images image-hover w-[4.2rem] cursor-pointer rounded-[10px] xl:w-[6rem]"
+            />
+          </button>
+        </div>
+      </section>
+
+      <!-- basket filled information -->
+      <div
+        class="basket-filled-info absolute top-[10%] right-0 left-0 mx-2 hidden max-w-[40rem] rounded-[10px] bg-[var(--white)] p-4 shadow-2xl sm:top-8 sm:-right-2.5 sm:mx-6 sm:max-w-[20rem] sm:flex-col sm:justify-self-end lg:-top-[11%] lg:-right-[3.5rem] lg:max-w-[25rem]"
+      >
+        <h2
+          class="mb-4 font-[var(--font-weight-700)] text-[var(--very-dark-blue)]"
+        >
+          Cart
+        </h2>
+        <hr
+          class="-mx-4 my-[1.5rem] h-1 border-none bg-[var(--light-grayish-blue)]"
+        />
+        <div class="flex items-center gap-6">
+          <img
+            class="w-[5rem] rounded-[5px]"
+            src="/Ecommerce-Product-Page/assets/image-product-1-D36l1Pee.jpg"
+          />
+          <div>
+            <p>Fall Limited Edition Sneakers</p>
+            <p>
+              $<span class="base-price">125.00</span> x
+              <span class="item-quantity">3</span>
+              <span
+                class="final-price font-[var(--font-weight-700)] text-[var(--very-dark-blue)]"
+                >$375.00</span
+              >
+            </p>
+          </div>
+          <button type="button" class="delete-icon cursor-pointer">
+            <img src="data:image/svg+xml,%3csvg%20width='14'%20height='16'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cpath%20d='M0%202.625V1.75C0%201.334.334%201%20.75%201h3.5l.294-.584A.741.741%200%200%201%205.213%200h3.571a.75.75%200%200%201%20.672.416L9.75%201h3.5c.416%200%20.75.334.75.75v.875a.376.376%200%200%201-.375.375H.375A.376.376%200%200%201%200%202.625Zm13%201.75V14.5a1.5%201.5%200%200%201-1.5%201.5h-9A1.5%201.5%200%200%201%201%2014.5V4.375C1%204.169%201.169%204%201.375%204h11.25c.206%200%20.375.169.375.375ZM4.5%206.5c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0%20.275.225.5.5.5s.5-.225.5-.5v-7Zm3%200c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0%20.275.225.5.5.5s.5-.225.5-.5v-7Zm3%200c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0%20.275.225.5.5.5s.5-.225.5-.5v-7Z'%20id='a'/%3e%3c/defs%3e%3cuse%20fill='%23C3CAD9'%20fill-rule='nonzero'%20xlink:href='%23a'/%3e%3c/svg%3e" alt="delete icon" />
+          </button>
+        </div>
+        <button
+          type="button"
+          class="mt-6 mb-2 w-full cursor-pointer rounded-[10px] bg-[var(--orange)] py-4 font-[var(--font-weight-700)] text-[var(--very-dark-blue)] transition-all duration-500 ease-in-out hover:bg-orange-300"
+        >
+          Checkout
+        </button>
+      </div>
+
+      <!-- basket empty information -->
+      <div
+        class="basket-empty-info absolute top-[5%] right-0 left-0 mx-[1rem] hidden h-[20rem] max-w-[25rem] rounded-[10px] bg-[var(--white)] p-7 shadow-2xl md:mx-[2rem] md:h-[28rem] md:max-w-[30rem] lg:-top-[3.5rem] lg:left-[70%] lg:mx-0 lg:-mr-[2.5rem] lg:h-[15rem] lg:max-w-[32rem]"
+      >
+        <h2
+          class="mb-4 font-[var(--font-weight-700)] text-[var(--very-dark-blue)]"
+        >
+          Cart
+        </h2>
+        <hr
+          class="-mx-4 my-[1.5rem] h-1 border-none bg-[var(--light-grayish-blue)]"
+        />
+        <div
+          class="mt-[5rem] flex items-center justify-center font-[var(--font-weight-700)]"
+        >
+          <p>Your cart is empty.</p>
+        </div>
+      </div>
+
+      <!-- content section -->
+      <section class="px-6 lg:-mt-6">
+        <h3
+          class="mb-4 font-[var(--font-weight-700)] uppercase sm:mt-4 md:mt-4 lg:mt-0"
+        >
+          Sneaker Company
+        </h3>
+        <h2
+          class="mb-4 text-3xl font-[var(--font-weight-700)] text-[var(--very-dark-blue)] lg:pr-4 lg:text-4xl"
+        >
+          Fall Limited Edition Sneakers
+        </h2>
+        <p class="mb-4 lg:pr-4.5">
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they’ll withstand everything
+          the weather can offer.
+        </p>
+        <div
+          class="mb-4 flex items-center justify-between font-[var(--font-weight-700)] lg:mb-4 lg:flex-col lg:items-start"
+        >
+          <div class="flex items-center gap-4 lg:mb-2">
+            <p class="text-2xl text-[var(--very-dark-blue)]">$125.00</p>
+            <p
+              class="rounded-[5px] bg-[var(--very-dark-blue)] px-3 py-1 text-[var(--light-grayish-blue)]"
+            >
+              50%
+            </p>
+          </div>
+          <p class="line-through sm:mr-2">$250.00</p>
+        </div>
+
+        <!-- add to cart div  -->
+        <div
+          class="sm:flex sm:items-center sm:justify-between lg:justify-normal lg:gap-4"
+        >
+          <div
+            class="mb-4 flex justify-between rounded-[10px] bg-[var(--light-grayish-blue)] px-5 py-4 sm:mb-0 sm:w-[11rem]"
+          >
+            <button
+              type="button"
+              class="minus-icon cursor-pointer sm:justify-self-start"
+            >
+              <img src="data:image/svg+xml,%3csvg%20width='12'%20height='4'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cpath%20d='M11.357%203.332A.641.641%200%200%200%2012%202.69V.643A.641.641%200%200%200%2011.357%200H.643A.641.641%200%200%200%200%20.643v2.046c0%20.357.287.643.643.643h10.714Z'%20id='a'/%3e%3c/defs%3e%3cuse%20fill='%23FF7E1B'%20fill-rule='nonzero'%20xlink:href='%23a'/%3e%3c/svg%3e" />
+            </button>
+            <form action="#">
+              <label for="input">
+                <input
+                  type="text"
+                  name="text"
+                  id="input"
+                  value="3"
+                  class="input max-w-[25px] text-center font-[var(--font-weight-700)] text-[var(--very-dark-blue)]"
+                />
+              </label>
+            </form>
+            <button type="button" class="plus-icon cursor-pointer">
+              <img src="data:image/svg+xml,%3csvg%20width='12'%20height='12'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cpath%20d='M12%207.023V4.977a.641.641%200%200%200-.643-.643h-3.69V.643A.641.641%200%200%200%207.022%200H4.977a.641.641%200%200%200-.643.643v3.69H.643A.641.641%200%200%200%200%204.978v2.046c0%20.356.287.643.643.643h3.69v3.691c0%20.356.288.643.644.643h2.046a.641.641%200%200%200%20.643-.643v-3.69h3.691A.641.641%200%200%200%2012%207.022Z'%20id='b'/%3e%3c/defs%3e%3cuse%20fill='%23FF7E1B'%20fill-rule='nonzero'%20xlink:href='%23b'/%3e%3c/svg%3e" />
+            </button>
+          </div>
+          <!-- cart button -->
+          <button
+            type="button"
+            class="cart-button flex w-full cursor-pointer items-center justify-center gap-4 rounded-[10px] bg-[var(--orange)] py-4 transition duration-500 ease-in-out hover:bg-orange-300 sm:max-w-[15rem] lg:max-w-[20rem]"
+          >
+            <img src="data:image/svg+xml,%3csvg%20width='22'%20height='20'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M20.925%203.641H3.863L3.61.816A.896.896%200%200%200%202.717%200H.897a.896.896%200%201%200%200%201.792h1l1.031%2011.483c.073.828.52%201.726%201.291%202.336C2.83%2017.385%204.099%2020%206.359%2020c1.875%200%203.197-1.87%202.554-3.642h4.905c-.642%201.77.677%203.642%202.555%203.642a2.72%202.72%200%200%200%202.717-2.717%202.72%202.72%200%200%200-2.717-2.717H6.365c-.681%200-1.274-.41-1.53-1.009l14.321-.842a.896.896%200%200%200%20.817-.677l1.821-7.283a.897.897%200%200%200-.87-1.114ZM6.358%2018.208a.926.926%200%200%201%200-1.85.926.926%200%200%201%200%201.85Zm10.015%200a.926.926%200%200%201%200-1.85.926.926%200%200%201%200%201.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383%205.53Z'%20fill='%2369707D'%20fill-rule='nonzero'/%3e%3c/svg%3e" alt="cart icon" />
+            <p
+              class="font-[var(--font-weight-700)] text-[var(--very-dark-blue)]"
+            >
+              Add to cart
+            </p>
+          </button>
+        </div>
+      </section>
+
+      <!-- lightbox section -->
+      <!-- showing hidden and then using flex dynamically by javascript to show on large screen -->
+      <section
+        class="lightbox absolute -top-[3.2rem] left-0 z-20 hidden h-full w-full flex-col"
+      >
+        <!-- close lightbox icon -->
+        <button
+          type="button"
+          class="close-lightbox-icon absolute -top-[7%] right-[26%] z-10 mb-4 cursor-pointer text-[var(--light-grayish-blue)] hover:text-[var(--orange)]"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- light content  -->
+        <div class="light-content relative">
+          <!-- previous icon -->
+          <button
+            type="button"
+            class="previous-icon absolute top-[40%] left-[23.4%] cursor-pointer rounded-[50%] bg-[var(--light-grayish-blue)] p-3"
+          >
+            <img src="data:image/svg+xml,%3csvg%20width='12'%20height='18'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M11%201%203%209l8%208'%20stroke='%231D2026'%20stroke-width='3'%20fill='none'%20fill-rule='evenodd'/%3e%3c/svg%3e" alt="previous icon" />
+          </button>
+          <!-- main image -->
+          <div class="flex w-full flex-col items-center justify-center">
+            <img
+              src="/Ecommerce-Product-Page/assets/image-product-1-D36l1Pee.jpg"
+              alt="product image"
+              class="lightbox-main-image max-w-[50%] rounded-[10px]"
+            />
+          </div>
+          <!-- next icon -->
+          <button
+            type="button"
+            class="next-icon absolute top-[40%] right-[23.4%] cursor-pointer rounded-[50%] bg-[var(--light-grayish-blue)] p-3"
+          >
+            <img
+              src="data:image/svg+xml,%3csvg%20width='13'%20height='18'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='m2%201%208%208-8%208'%20stroke='%231D2026'%20stroke-width='3'%20fill='none'%20fill-rule='evenodd'/%3e%3c/svg%3e"
+              alt="next icon"
+              class="rounded-[10px]"
+            />
+          </button>
+          <!-- lightbox gallery container -->
+          <div
+            class="lightbox-images-container mt-4 flex justify-center gap-[1rem]"
+          >
+            <button type="button">
+              <img
+                src="/Ecommerce-Product-Page/assets/image-product-1-D36l1Pee.jpg"
+                alt="thumbnail 1"
+                class="lightbox-images image-hover w-[6rem] cursor-pointer rounded-[10px]"
+              />
+            </button>
+
+            <button type="button">
+              <img
+                src="/Ecommerce-Product-Page/assets/image-product-2-BT5cmuDx.jpg"
+                alt="thumbnail 2"
+                class="lightbox-images image-hover w-[6rem] cursor-pointer rounded-[10px]"
+              />
+            </button>
+            <button type="button">
+              <img
+                src="/Ecommerce-Product-Page/assets/image-product-3-CDkTofMU.jpg"
+                alt="thumbnail 3"
+                class="lightbox-images image-hover w-[6rem] cursor-pointer rounded-[10px]"
+              />
+            </button>
+            <button type="button">
+              <img
+                src="/Ecommerce-Product-Page/assets/image-product-4-DXKEAM1K.jpg"
+                alt="thumbnail 3"
+                class="lightbox-images image-hover w-[6rem] cursor-pointer rounded-[10px]"
+              />
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="text-center text-[14px]">
+        Challenge by
+        <a
+          href="https://www.frontendmentor.io?ref=challenge"
+          target="_blank"
+          class="text-[hsl(228,45%,44%)]"
+          >Frontend Mentor</a
+        >. Coded by
+        <a
+          href="https://github.com/Sulley-Sadick"
+          class="text-[hsl(228,45%,44%)]"
+          >Sadick Sulley</a
+        >.
+      </div>
+    </footer>
+    <!-- overlay effectn to be used by javascript -->
+    <div class="overlay"></div>
+  </body>
+</html>
